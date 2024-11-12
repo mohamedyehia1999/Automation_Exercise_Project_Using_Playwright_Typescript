@@ -1,0 +1,24 @@
+{
+    "RegisterName":"Moahmed",
+    "RegisterEmail": "my55@my.com" ,
+    "Password": "12345678",
+    "Day": "1",
+    "Month":"5",
+    "Year":"1999",
+    "Firstname": "Mohamed",
+    "Lastname":"Yehia",
+    "CompanyName":"Parent",
+    "AddressName":"Abo Seleem Street , Egypt",
+    "CountryName":"Canada",
+    "State": "State Test",
+    "CityName" : "Zagazig",
+    "ZipCodeNumber":"123123",
+    "MobileNumber":"524152536",
+    "SuccesMessage":"Account Created!",
+    "DeletedMessage":"Account Deleted!",
+    "Registered_Email":"login@login.com"
+   
+
+    
+    
+}
