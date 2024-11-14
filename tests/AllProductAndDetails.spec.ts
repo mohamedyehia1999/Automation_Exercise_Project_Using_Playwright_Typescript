@@ -12,7 +12,7 @@ test('Verify All Products and product detail page',async({page})=>{
     await productPage.UserIsLandedToProductDetailPage();
     await productPage.VerifyThatDetailIsVisible();
 });
-test.only("Add The First Product To Cart",async({page})=>{
+test("Add The First Product To Cart",async({page})=>{
     const homePage= new HomePage(page);
     const productPage=new ProductPage(page);
 
