@@ -9,7 +9,6 @@
 
 ### 🌐 Website Used:  
 * [Automation Exercise](https://automationexercise.com/)  
-  <br><img alt="Automation Exercise website" src="/static/images/home/logo.png">  
 
 ### 🧩 Project Design:  
 * 🏗️ **Page Object Model (POM)** Design Pattern.  
