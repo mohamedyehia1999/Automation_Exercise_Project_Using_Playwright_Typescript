@@ -1,21 +1,21 @@
 import { type Page,type Locator ,expect } from "@playwright/test";
 
 export class LogoutPage {
-    page: Page;
-    LogoutBtn:Locator;
-    Login_Title:Locator;
+    readonly page: Page;
+    readonly logoutBtn:Locator;
+    readonly login_Title:Locator;
 
     constructor(page:Page){
-        this.LogoutBtn=page.getByRole('link',{name:'Logout'});
-        this.Login_Title=page.locator("//h2[normalize-space()='Login to your account']");
+        this.logoutBtn=page.getByRole('link',{name:'Logout'});
+        this.login_Title=page.locator("//h2[normalize-space()='Login to your account']");
     
        
     }
-    async UserCanLoggedOutSuccessfully()
+    async userCanLoggedOutSuccessfully()
     {
-        await this.LogoutBtn.click();
+        await this.logoutBtn.click();
             
     }
-    async ValidateThatUserIsNaviggatedToLoginPage(){
-        await expect(this.Login_Title).toBeVisible();    }
+    async validateThatUserIsNaviggatedToLoginPage(){
+        await expect(this.login_Title).toBeVisible();    }
 }

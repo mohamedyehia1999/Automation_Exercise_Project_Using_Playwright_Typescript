@@ -10,11 +10,11 @@ test("Login With Correct Email and Password",async({page})=>
         const loginPage= new LoginPage(page);
 
         await homePage.goto();
-        await homePage.OpenLoginPage();
-        await loginPage.ValidateatheLoginTitleISVisble();
-        await loginPage.UserCanLoginWithCorrectEmailAndPassowrd(loginData.Email_Login,loginData.Password_Login);
-        await loginPage.ValidateThatLoggedInAsUsernameIsVisible();
-        await loginPage.VerifyThatAccountDeletedIsVisible(loginData.DeletedMessage);
+        await homePage.openLoginPage();
+        await loginPage.validateatheLoginTitleISVisble();
+        await loginPage.userCanLoginWithCorrectEmailAndPassowrd(loginData.Email_Login,loginData.Password_Login);
+        await loginPage.validateThatLoggedInAsUsernameIsVisible();
+        await loginPage.verifyThatAccountDeletedIsVisible(loginData.DeletedMessage);
 })
 test("Login With Incorrect Email and Password",async({page})=>
     {
@@ -22,9 +22,9 @@ test("Login With Incorrect Email and Password",async({page})=>
         const loginPage= new LoginPage(page);
 
         await homePage.goto();
-        await homePage.OpenLoginPage();
-        await loginPage.ValidateatheLoginTitleISVisble();
-        await loginPage.UserCannotLoginWithIncorrectEmailAndPassowrd(loginData.IncorrectEmail,loginData.IncorrectPassword);
-        await loginPage.ValidateErrorLoginMessageIsVisible();
+        await homePage.openLoginPage();
+        await loginPage.validateatheLoginTitleISVisble();
+        await loginPage.userCannotLoginWithIncorrectEmailAndPassowrd(loginData.IncorrectEmail,loginData.IncorrectPassword);
+        await loginPage.validateErrorLoginMessageIsVisible();
         
 })

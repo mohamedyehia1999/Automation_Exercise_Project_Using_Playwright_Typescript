@@ -9,9 +9,9 @@ test('User Can Search about Product Successfully',async({page})=>{
     const productPage=new ProductPage(page);
 
     await homePage.goto();
-    await homePage.OpenProductPage();
-    await productPage.ValidateThatAllProductPageIsVisible();
-    await productPage.UserCanSearchOnProduct(searchData.Search_Product);
-    await productPage.VerifiedThatSearchedProductIsVisible();
+    await homePage.openProductPage();
+    await productPage.validateThatAllProductPageIsVisible();
+    await productPage.userCanSearchOnProduct(searchData.Search_Product);
+    await productPage.verifiedThatSearchedProductIsVisible();
     await productPage.validateOnProductsRelatedToSearch(searchData.SearchResult);
 })

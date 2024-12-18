@@ -12,11 +12,11 @@ export default defineConfig({
 
   use: {
     
-    trace: 'on-first-retry',
+    trace: 'on',
     screenshot: 'only-on-failure',
     video: {
-      mode: 'on-first-retry',
-      size: { width: 640, height: 480 }
+      mode: 'retain-on-failure',
+      size: { width: 720, height: 720}
     }
   },
 
@@ -25,6 +25,7 @@ export default defineConfig({
       name: 'chromium',
       use: {
          headless:false,
+         ignoreHTTPSErrors:true,
         ...devices['Desktop Chrome'] 
       },
       

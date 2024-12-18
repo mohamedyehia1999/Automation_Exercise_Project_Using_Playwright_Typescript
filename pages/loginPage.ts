@@ -2,56 +2,56 @@ import { type Page,type Locator ,expect } from "@playwright/test";
 
 export class LoginPage
 {
-    page: Page;
-    EmailLogin:Locator;
-    PasswordLogin:Locator;
-    LoginBtn:Locator;
-    Login_Title:Locator;
-    LoggedInUser:Locator;
-    DeleteBtn:Locator;
-    DeleteMsg:Locator;
-    ErrorLoginMsg:Locator;
+    readonly page: Page;
+    readonly emailLogin:Locator;
+    readonly passwordLogin:Locator;
+    readonly loginBtn:Locator;
+    readonly login_Title:Locator;
+    readonly loggedInUser:Locator;
+    readonly deleteBtn:Locator;
+    readonly deleteMsg:Locator;
+    readonly errorLoginMsg:Locator;
     
 
 
     constructor (page:any)
     {
-        this.EmailLogin=page.locator("//*[@data-qa='login-email']");
-        this.PasswordLogin=page.locator("//*[@data-qa='login-password']");
-        this.LoginBtn=page.getByRole('button',{name:'Login'});
-        this.Login_Title=page.locator("//h2[normalize-space()='Login to your account']");
-        this.LoggedInUser=page.locator("//header[@id='header']//li[1]//a[1]");
-        this.DeleteBtn=page.getByRole('link',{name:'Delete Account'});
-        this.DeleteMsg=page.locator("//*[@data-qa='account-deleted']");
-        this.ErrorLoginMsg=page.locator("//p[normalize-space()='Your email or password is incorrect!']");
+        this.emailLogin=page.locator("//*[@data-qa='login-email']");
+        this.passwordLogin=page.locator("//*[@data-qa='login-password']");
+        this.loginBtn=page.getByRole('button',{name:'Login'});
+        this.login_Title=page.locator("//h2[normalize-space()='Login to your account']");
+        this.loggedInUser=page.locator("//header[@id='header']//li[1]//a[1]");
+        this.deleteBtn=page.getByRole('link',{name:'Delete Account'});
+        this.deleteMsg=page.locator("//*[@data-qa='account-deleted']");
+        this.errorLoginMsg=page.locator("//p[normalize-space()='Your email or password is incorrect!']");
     }
-    async ValidateatheLoginTitleISVisble(){
-        await expect(this.Login_Title).toBeVisible();
+    async validateatheLoginTitleISVisble(){
+        await expect(this.login_Title).toBeVisible();
     }
 
-    async UserCanLoginWithCorrectEmailAndPassowrd(email:any,password:any)
+    async userCanLoginWithCorrectEmailAndPassowrd(email:any,password:any)
     {
-        await this.EmailLogin.fill(email);
-        await this.PasswordLogin.fill(password);
-        await this.LoginBtn.click();
+        await this.emailLogin.fill(email);
+        await this.passwordLogin.fill(password);
+        await this.loginBtn.click();
 
     }
-    async ValidateThatLoggedInAsUsernameIsVisible(){
-        await  expect(this.LoggedInUser).toBeVisible();
+    async validateThatLoggedInAsUsernameIsVisible(){
+        await  expect(this.loggedInUser).toBeVisible();
     }
-    async VerifyThatAccountDeletedIsVisible(deleteMessage: any){
-        await this.DeleteBtn.click();
-        await expect(this.DeleteMsg).toContainText(deleteMessage);
+    async verifyThatAccountDeletedIsVisible(deleteMessage: any){
+        await this.deleteBtn.click();
+        await expect(this.deleteMsg).toContainText(deleteMessage);
     }
-    async UserCannotLoginWithIncorrectEmailAndPassowrd(email:any,password:any)
+    async userCannotLoginWithIncorrectEmailAndPassowrd(email:any,password:any)
     {
-        await this.EmailLogin.fill(email);
-        await this.PasswordLogin.fill(password);
-        await this.LoginBtn.click();
+        await this.emailLogin.fill(email);
+        await this.passwordLogin.fill(password);
+        await this.loginBtn.click();
 
     }
-    async ValidateErrorLoginMessageIsVisible(){
-        await expect(this.ErrorLoginMsg).toBeVisible();
+    async validateErrorLoginMessageIsVisible(){
+        await expect(this.errorLoginMsg).toBeVisible();
     }
 
 }

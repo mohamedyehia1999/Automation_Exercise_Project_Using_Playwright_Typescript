@@ -10,10 +10,10 @@ const loginData=JSON.parse(JSON.stringify(require("../utils/LoginData.json")));
     const logoutPage=new LogoutPage(page);
 
     await homePage.goto();
-    await homePage.OpenLoginPage();
-    await loginPage.ValidateatheLoginTitleISVisble();
-    await loginPage.UserCanLoginWithCorrectEmailAndPassowrd(loginData.Login_Account , loginData.Password_Login);
-    await loginPage.ValidateThatLoggedInAsUsernameIsVisible();
-    await logoutPage.UserCanLoggedOutSuccessfully();
-   await logoutPage.ValidateThatUserIsNaviggatedToLoginPage();
+    await homePage.openLoginPage();
+    await loginPage.validateatheLoginTitleISVisble();
+    await loginPage.userCanLoginWithCorrectEmailAndPassowrd(loginData.Login_Account , loginData.Password_Login);
+    await loginPage.validateThatLoggedInAsUsernameIsVisible();
+    await logoutPage.userCanLoggedOutSuccessfully();
+   await logoutPage.validateThatUserIsNaviggatedToLoginPage();
  })

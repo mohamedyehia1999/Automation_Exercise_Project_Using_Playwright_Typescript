@@ -7,7 +7,7 @@ test('Verify Test Cases Page',async ({page})=>{
     const testCasesPage= new TestCasesPage (page);
 
     await homePage.goto();
-    await homePage.OpenTestCasesPage();
-    await testCasesPage.ValidateThatTheUserIsNavigatedToTestCasesPageSuccessfully();
+    await homePage.openTestCasesPage();
+    await testCasesPage.validateThatTheUserIsNavigatedToTestCasesPageSuccessfully();
 
 })

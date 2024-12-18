@@ -10,9 +10,9 @@ test('Register User',async({page})=>{
     const registerPage= new RegisterPage(page);
     
     await homePage.goto();
-    await homePage.OpenRegisterationPage();
-    await registerPage.ValidateatheSignupTitleISVisble();
-    await registerPage.EnterReisterInformation(registerData.RegisterName , registerData.RegisterEmail 
+    await homePage.openRegisterationPage();
+    await registerPage.validateatheSignupTitleISVisble();
+    await registerPage.enterReisterInformation(registerData.RegisterName , registerData.RegisterEmail 
         ,registerData.Password , registerData.Day 
         , registerData.Month , registerData.Year 
         , registerData.Firstname , registerData.Lastname 
@@ -20,9 +20,9 @@ test('Register User',async({page})=>{
         , registerData.CountryName , registerData.State 
         , registerData.CityName , registerData.ZipCodeNumber , registerData.MobileNumber);
     
-    await registerPage.VerifyThatRegisterIsDoneSuccessfully(registerData.SuccesMessage);
-    await registerPage.ValidateThatLoggedInAsUsernameIsVisible();
-    await registerPage.VerifyThatAccountDeletedIsVisible(registerData.DeletedMessage);
+    await registerPage.verifyThatRegisterIsDoneSuccessfully(registerData.SuccesMessage);
+    await registerPage.validateThatLoggedInAsUsernameIsVisible();
+    await registerPage.verifyThatAccountDeletedIsVisible(registerData.DeletedMessage);
    
 })
 test('Register With Existing Email',async({page})=>{
@@ -31,9 +31,9 @@ test('Register With Existing Email',async({page})=>{
     const registerPage= new RegisterPage(page);
 
     await homePage.goto();
-    await homePage.OpenRegisterationPage();
-    await registerPage.ValidateatheSignupTitleISVisble();
-    await registerPage.RegisterWithExistEmail(registerData.RegisterName,registerData.Registered_Email);
-    await registerPage.VerifyErrorEmaixIsExistMsg();
+    await homePage.openRegisterationPage();
+    await registerPage.validateatheSignupTitleISVisble();
+    await registerPage.registerWithExistEmail(registerData.RegisterName,registerData.Registered_Email);
+    await registerPage.verifyErrorEmaixIsExistMsg();
 })
 ;

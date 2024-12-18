@@ -1,16 +1,16 @@
 import { type Page,type Locator ,expect } from "@playwright/test";
 
 export class TestCasesPage{
-    page:Page;
-    TestCaseTitle:Locator;
+    readonly page:Page;
+    readonly testCaseTitle:Locator;
 
     constructor(page:Page)
     {
-        this.TestCaseTitle=page.locator("//span[contains(text(),'Below is the list of')]");
+        this.testCaseTitle=page.locator("//span[contains(text(),'Below is the list of')]");
 
     }
-    async ValidateThatTheUserIsNavigatedToTestCasesPageSuccessfully(){
-        await expect(this.TestCaseTitle).toBeVisible();
+    async validateThatTheUserIsNavigatedToTestCasesPageSuccessfully(){
+        await expect(this.testCaseTitle).toBeVisible();
     }
 
 }

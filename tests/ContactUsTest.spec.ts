@@ -9,10 +9,10 @@ test('User can Contact US Successfully',async({page})=>{
     const contactUSPage = new ContactUSPage(page);
 
     await homePage.goto();
-    await homePage.OPenContactUsPage();
-    await contactUSPage.VerifyGETINTOUCHisvisible();
-    await contactUSPage.UserCanContactUsSuccessfully(contactData.Name,contactData.Email,contactData.Subject,contactData.Message);
-    await contactUSPage.ValidateThatSuccessMessageIsVisible();
-    await contactUSPage.ValidateThatHomePageIsOpenedSuccessAfterPressingOnHome();
+    await homePage.openContactUsPage();
+    await contactUSPage.verifyGetInTouchisvisible();
+    await contactUSPage.userCanContactUsSuccessfully(contactData.Name,contactData.Email,contactData.Subject,contactData.Message);
+    await contactUSPage.validateThatSuccessMessageIsVisible();
+    await contactUSPage.validateThatHomePageIsOpenedSuccessAfterPressingOnHome();
 
 })
