@@ -13,7 +13,9 @@ export class HomePage{
     readonly cartLink:Locator;
     
 
-    constructor(page:any){
+    constructor(page:any)
+
+    {
         this.page=page;
         this.signup_login=page.locator("//a[normalize-space()='Signup / Login']");
         this.conatctUsLink=page.getByRole('link',{name:' Contact us'});
@@ -26,17 +28,16 @@ export class HomePage{
         this.subscription_SuccessMsg=page.locator(".alert-success.alert");
         this.cartLink=page.getByRole('link',{name:'Cart'});
     }
+
+
     async goto(){
         await this.page.goto("https://automationexercise.com/");
         return this;
     }
-    async validateThatHomePageisVisible(){
-        await expect(this.homePageTitle).toBeVisible();
-
-    }
     async openRegisterationPage(){
         await this.signup_login.click();
     }
+
     async openLoginPage(){
         await this.signup_login.click();
     }
@@ -49,17 +50,21 @@ export class HomePage{
     async openProductPage(){
         await this.productLink.click();
     }
+
+    async openCartPage(){
+        await this.cartLink.click();
+    }
+
+    async validateThatHomePageisVisible(){
+        await expect(this.homePageTitle).toBeVisible();
+
+    }
     async verifySubscriptionInHomePage(Sub_email:any, successMessage:any){
         await this.subscriptionText.scrollIntoViewIfNeeded();
         await expect(this.subscriptionText).toBeVisible();
         await this.subscription_Email.fill(Sub_email);
         await this.subscription_Arrow.click();
         await expect(this.subscription_SuccessMsg).toContainText(successMessage);
+    
     }
-    async openCartPage(){
-        await this.cartLink.click();
-    }
-
-
-
 }

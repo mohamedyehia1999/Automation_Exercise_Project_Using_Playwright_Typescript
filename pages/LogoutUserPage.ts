@@ -5,7 +5,9 @@ export class LogoutPage {
     readonly logoutBtn:Locator;
     readonly login_Title:Locator;
 
-    constructor(page:Page){
+    constructor(page:Page)
+    {
+        this.page=page;
         this.logoutBtn=page.getByRole('link',{name:'Logout'});
         this.login_Title=page.locator("//h2[normalize-space()='Login to your account']");
     
@@ -17,5 +19,6 @@ export class LogoutPage {
             
     }
     async validateThatUserIsNaviggatedToLoginPage(){
-        await expect(this.login_Title).toBeVisible();    }
+        await expect(this.login_Title).toBeVisible();  
+      }
 }

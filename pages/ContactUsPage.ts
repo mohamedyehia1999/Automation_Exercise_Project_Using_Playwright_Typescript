@@ -35,18 +35,21 @@ export class ContactUSPage{
         await this.subject.fill(subject);
         await this.messageField.fill(message);
         await this.file.setInputFiles(path.join(__dirname,'..', 'upload', 'Test.pdf'));
-              this.page.on('dialog', dialog => dialog.accept());
-        await this.submit.click();
-              this.page.on('dialog', dialog => dialog.accept());
+              
 
     }
 
     async verifyGetInTouchisvisible(){
          await expect(this.getInTouch).toBeVisible();
     }
-    async validateThatSuccessMessageIsVisible(){
-        await expect(this.successMsg).toBeVisible();
-    }
+   async validateThatSuccessMessageIsVisible() {
+    this.page.once('dialog', async dialog => {
+        await dialog.accept();
+    });
+
+    await this.submit.click();
+    await expect(this.successMsg).toBeVisible();
+}
     async validateThatHomePageIsOpenedSuccessAfterPressingOnHome(){
         await this.home.click();
         await expect(this.homePageTitle).toBeVisible();

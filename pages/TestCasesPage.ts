@@ -6,6 +6,7 @@ export class TestCasesPage{
 
     constructor(page:Page)
     {
+        this.page=page;
         this.testCaseTitle=page.locator("//span[contains(text(),'Below is the list of')]");
 
     }

@@ -1,6 +1,6 @@
 import{test} from '@playwright/test';
 import {HomePage} from '../pages/homePage';
-import {ProductPage} from '../pages/ProductPage';
+import {ProductPage} from '../pages/productPage';
 
 const searchData=JSON.parse(JSON.stringify(require("../utils/SearchData.json")));
 

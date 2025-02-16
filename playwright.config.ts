@@ -24,7 +24,7 @@ export default defineConfig({
     {
       name: 'chromium',
       use: {
-         headless:false,
+         headless:true,
          ignoreHTTPSErrors:true,
         ...devices['Desktop Chrome'] 
       },

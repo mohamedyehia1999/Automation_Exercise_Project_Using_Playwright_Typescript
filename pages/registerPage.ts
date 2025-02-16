@@ -3,10 +3,6 @@ import { type Page,type Locator ,expect } from "@playwright/test";
 export class RegisterPage{
 
     readonly page: Page;
-    readonly signup_Title: Locator;
-    readonly name: Locator;
-    readonly email: Locator;
-    readonly signUp: Locator;
     readonly title : Locator;
     readonly password : Locator;
     readonly dayOfBirthday : Locator;
@@ -33,10 +29,6 @@ export class RegisterPage{
 
     constructor(page:any){
         this.page=page;
-        this.signup_Title=page.locator("//h2[normalize-space()='New User Signup!']");
-        this.name=page.getByPlaceholder("Name");
-        this.email=page.locator("//*[@data-qa='signup-email']");
-        this.signUp=page.getByRole('button',{name:'SignUp'});
         this.title=page.locator("#id_gender1");
         this.password=page.locator("#password");
         this.dayOfBirthday=page.locator("#days");
@@ -64,11 +56,10 @@ export class RegisterPage{
         
 
     }
-    async enterReisterInformation(registerName: any , registerEmail: any , password: any ,day : any , month : any , year : any , firstName:any , lastName: any , company: any , address: any , country: any , state : any , city : any , zipcode :any , mobileNumber: any)
+    async enterAccountInformation( password: any ,day : any , month : any , year : any , firstName:any , lastName: any , company: any)
     {
-        await this.name.fill(registerName);
-        await this.email.fill(registerEmail);
-        await this.signUp.click();
+    
+    
         await this.title.click();
         await this.password.fill(password);
         await this.dayOfBirthday.selectOption(day);
@@ -79,6 +70,11 @@ export class RegisterPage{
         await this.firstName.fill(firstName);
         await this.lastName.fill(lastName);
         await this.company.fill(company);
+       
+        
+    }
+    async enterAddressInformation(address: any , country: any , state : any , city : any , zipcode :any , mobileNumber: any)
+    {
         await this.address.fill(address);
         await this.country.selectOption(country);
         await this.state.fill(state);
@@ -86,11 +82,8 @@ export class RegisterPage{
         await this.zipcode.fill(zipcode);
         await this.mobileNumber.fill(mobileNumber);
         await this.createBtn.click();
-        
     }
-    async validateatheSignupTitleISVisble(){
-        await expect(this.signup_Title).toBeVisible();
-    }
+   
     async verifyThatRegisterIsDoneSuccessfully(SuccessMessage: any){
         await expect(this.successMsg).toContainText(SuccessMessage);
     }
@@ -102,15 +95,6 @@ export class RegisterPage{
         await this.deleteBtn.click();
         await expect(this.deleteMsg).toContainText(deleteMessage);
     }
-    async registerWithExistEmail(Name:any,emailExist:any)
-    {
-        await this.name.fill(Name);
-        await this.email.fill(emailExist);
-        await this.signUp.click();
-    }
-    async verifyErrorEmaixIsExistMsg()
-    {
-        await expect(this.emailexistMsg).toBeVisible();
-
-    }
+   
+    
 }

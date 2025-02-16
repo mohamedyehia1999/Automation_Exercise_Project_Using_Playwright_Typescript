@@ -1,18 +1,24 @@
-import{test} from '@playwright/test';
-import {HomePage} from '../pages/homePage';
-import {ContactUSPage} from '../pages/ContactUsPage';
+import { test } from '@playwright/test';
+import { HomePage } from '../pages/homePage';
+import { ContactUSPage } from '../pages/ContactUsPage';
 
-const contactData=JSON.parse(JSON.stringify(require("../utils/ContactUsData.json")));
+const contactData = JSON.parse(JSON.stringify(require("../utils/ContactUsData.json")));
 
-test('User can Contact US Successfully',async({page})=>{
-    const homePage= new HomePage(page);
-    const contactUSPage = new ContactUSPage(page);
+test.describe('Contact Us Tests', () => {
+    let homePage: HomePage;
+    let contactUsPage: ContactUSPage;
 
-    await homePage.goto();
-    await homePage.openContactUsPage();
-    await contactUSPage.verifyGetInTouchisvisible();
-    await contactUSPage.userCanContactUsSuccessfully(contactData.Name,contactData.Email,contactData.Subject,contactData.Message);
-    await contactUSPage.validateThatSuccessMessageIsVisible();
-    await contactUSPage.validateThatHomePageIsOpenedSuccessAfterPressingOnHome();
+    test.beforeEach(async ({ page }) => {
+        homePage = new HomePage(page);
+        contactUsPage = new ContactUSPage(page);
+        await homePage.goto();
+        await homePage.openContactUsPage();
+        await contactUsPage.verifyGetInTouchisvisible();
+    });
 
-})
+    test('User can Contact Us Successfully', async ({ page }) => {
+        await contactUsPage.userCanContactUsSuccessfully(contactData.Name, contactData.Email, contactData.Subject, contactData.Message);
+        await contactUsPage.validateThatSuccessMessageIsVisible();
+        await contactUsPage.validateThatHomePageIsOpenedSuccessAfterPressingOnHome();
+    });
+});
