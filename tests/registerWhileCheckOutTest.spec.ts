@@ -2,7 +2,7 @@ import { test } from '@playwright/test';
 import { HomePage } from '../pages/homePage';
 import { SignupLoginPage } from '../pages/SignupLoginPage';
 import { RegisterPage } from '../pages/registerPage';
-import { RegisterWhileCheckOutPage } from '../pages/registerWhileCheckOutPage';
+import { CheckOutPage } from '../pages/CheckoutPage';
 import { CartPage } from '../pages/cartPage';
 import { PaymentPage } from '../pages/paymentPage';
 
@@ -14,7 +14,7 @@ test.describe('Register While Checkout', () => {
   let homePage: HomePage;
   let signupLoginPage: SignupLoginPage;
   let registerPage: RegisterPage;
-  let registerWhileCheckOutPage: RegisterWhileCheckOutPage;
+  let registerWhileCheckOutPage: CheckOutPage;
   let cartPage: CartPage;
   let paymentPage: PaymentPage;
 
@@ -22,7 +22,7 @@ test.describe('Register While Checkout', () => {
     homePage = new HomePage(page);
     signupLoginPage = new SignupLoginPage(page);
     registerPage = new RegisterPage(page);
-    registerWhileCheckOutPage = new RegisterWhileCheckOutPage(page);
+    registerWhileCheckOutPage = new CheckOutPage(page);
     cartPage = new CartPage(page);
     paymentPage = new PaymentPage(page);
 

@@ -1,10 +1,8 @@
 import { type Page,type Locator ,expect } from "@playwright/test";
 
-export class RegisterWhileCheckOutPage
+export class CheckOutPage
 {
-    validateThatPlaceOrderButtonIsVisible() {
-        throw new Error('Method not implemented.');
-    }
+   
     readonly  page: Page;
     readonly addressDetailsTxt:Locator; 
     readonly ReviewOrderTxt:Locator;
