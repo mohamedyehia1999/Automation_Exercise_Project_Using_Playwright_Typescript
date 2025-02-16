@@ -1,5 +1,14 @@
 import { type Locator,type Page,expect } from '@playwright/test';
 export class HomePage{
+    proceedToCheckout() {
+        throw new Error('Method not implemented.');
+    }
+    openCart() {
+        throw new Error('Method not implemented.');
+    }
+    addProductToCart() {
+        throw new Error('Method not implemented.');
+    }
     readonly page:Page;
     readonly homePageTitle:Locator;
     readonly signup_login : Locator;
@@ -11,6 +20,12 @@ export class HomePage{
     readonly subscription_Arrow:Locator;
     readonly subscription_SuccessMsg:Locator;
     readonly cartLink:Locator;
+    readonly addToCartBtn:Locator;
+    readonly firstProduct:Locator;
+    readonly addToCartBtnFirstProduct:Locator;
+    readonly viewCartBtn:Locator;
+
+    
     
 
     constructor(page:any)
@@ -27,6 +42,12 @@ export class HomePage{
         this.subscription_Arrow=page.locator("#subscribe"); 
         this.subscription_SuccessMsg=page.locator(".alert-success.alert");
         this.cartLink=page.getByRole('link',{name:'Cart'});
+        this.addToCartBtn=page.locator("//button[normalize-space()='Add to cart']");
+        this.firstProduct=page.locator('.features_items .productinfo').nth(0);
+        this.addToCartBtnFirstProduct=page.locator(".btn.btn-default.add-to-cart").nth(1);
+        this.viewCartBtn=page.locator("//u[normalize-space()='View Cart']");
+
+
     }
 
 
@@ -53,6 +74,11 @@ export class HomePage{
 
     async openCartPage(){
         await this.cartLink.click();
+    }
+    async addProductToCartFromHomePageAndOpenCart(){
+        await this.firstProduct.hover();
+        await this.addToCartBtnFirstProduct.click();
+        await this.viewCartBtn.click();
     }
 
     async validateThatHomePageisVisible(){

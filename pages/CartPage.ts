@@ -17,6 +17,8 @@ export class CartPage{
    readonly subscription_SuccessMsg:Locator;
    readonly viewCartBtn:Locator;
    readonly addToCartBtn:Locator;
+   readonly register_loginLink:Locator;
+   readonly continueOnCartBtn:Locator;
 
      constructor(page:Page)
      {
@@ -35,7 +37,16 @@ export class CartPage{
         this.subscription_SuccessMsg=page.locator(".alert-success.alert");
         this.viewCartBtn=page.getByRole('button',{name:'View Cart'});
         this.addToCartBtn=page.getByRole('button',{name:'Add to Cart'});
+        this.register_loginLink=page.locator("//u[normalize-space()='Register / Login']");
+        this.continueOnCartBtn=page.getByRole('button',{name:'Continue On Cart'});
 
+
+     }
+     async openCheckoutPage(){
+        await this.proceedToCheckoutBtn.click();
+     }
+     async openRegisterLoginPage(){ 
+         await this.register_loginLink.click();
      }
      async verifyBothProductsAreAddedToCart()
      {
@@ -68,6 +79,7 @@ export class CartPage{
         await this.subscription_Arrow.click();
         await expect(this.subscription_SuccessMsg).toContainText(successMessage);
     }
+    /*
    
     async verifyProductQuantityInCart() {
         await this.viewProductBtn.first().click();
@@ -77,4 +89,5 @@ export class CartPage{
         //const cartQuantity = (await this.productQuantity.textContent())?.trim();
         expect(await this.productQuantity.textContent()).toContain('4');
 }
+        */
 }
