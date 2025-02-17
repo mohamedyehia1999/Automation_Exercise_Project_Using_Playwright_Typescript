@@ -1,14 +1,14 @@
 import { test } from '@playwright/test';
-import { HomePage } from '../pages/homePage';
-import { SignupLoginPage } from '../pages/SignupLoginPage';
-import { RegisterPage } from '../pages/registerPage';
-import { CheckOutPage } from '../pages/CheckoutPage';
-import { CartPage } from '../pages/cartPage';
-import { PaymentPage } from '../pages/paymentPage';
+import { HomePage } from '../../pages/homePage';
+import { SignupLoginPage } from '../../pages/SignupLoginPage';
+import { RegisterPage } from '../../pages/registerPage';
+import { CheckOutPage } from '../../pages/CheckoutPage';
+import { CartPage } from '../../pages/cartPage';
+import { PaymentPage } from '../../pages/paymentPage';
 
-const registerData = JSON.parse(JSON.stringify(require("../utils/RegisterData.json")));
-const paymentData = JSON.parse(JSON.stringify(require("../utils/PaymentData.json")));
-const registerCheckoutData = JSON.parse(JSON.stringify(require("../utils/RegisterCheckoutData.json")));
+const registerData = JSON.parse(JSON.stringify(require("../../utils/RegisterData.json")));
+const paymentData = JSON.parse(JSON.stringify(require("../../utils/PaymentData.json")));
+const registerCheckoutData = JSON.parse(JSON.stringify(require("../../utils/RegisterCheckoutData.json")));
 
 test.describe('Register While Checkout', () => {
   let homePage: HomePage;

@@ -1,9 +1,9 @@
 import{test} from '@playwright/test';
-import {HomePage} from '../pages/homePage';
-import { SignupLoginPage } from '../pages/SignupLoginPage';
-import {RegisterPage} from '../pages/registerPage';
+import {HomePage} from '../../pages/homePage';
+import { SignupLoginPage } from '../../pages/SignupLoginPage';
+import {RegisterPage} from '../../pages/registerPage';
 
-const registerData=JSON.parse(JSON.stringify(require("../utils/RegisterData.json")));
+const registerData=JSON.parse(JSON.stringify(require("../../utils/RegisterData.json")));
 
 test.describe('Register User Tests',()=>{
 
