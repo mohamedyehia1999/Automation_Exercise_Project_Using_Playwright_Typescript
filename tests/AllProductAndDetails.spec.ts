@@ -2,7 +2,7 @@ import { test } from '@playwright/test';
 import { HomePage } from '../pages/homePage';
 import { ProductPage } from '../pages/productPage';
 import { ProductDetailsPage } from '../pages/productDetailsPage';
-import { CartPage } from '../pages/CartPage';
+import { CartPage } from '../pages/cartPage';
 
 test.describe('All Products and Details Tests', () => {
     let homePage: HomePage;

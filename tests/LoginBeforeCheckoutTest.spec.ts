@@ -4,7 +4,6 @@ import { SignupLoginPage } from '../pages/SignupLoginPage';
 import { CheckOutPage } from '../pages/CheckoutPage';
 import { CartPage } from '../pages/cartPage';
 import { PaymentPage } from '../pages/paymentPage';
-import { json } from 'stream/consumers';
 
 const loginData = JSON.parse(JSON.stringify(require("../utils/LoginData.json")));
 const paymentData = JSON.parse(JSON.stringify(require("../utils/PaymentData.json")));

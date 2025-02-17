@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
 import { HomePage } from '../pages/homePage';
-import { CartPage } from '../pages/CartPage';
+import { CartPage } from '../pages/cartPage';
 
 const subscriptionData = JSON.parse(JSON.stringify(require("../utils/SubscriptionData.json")));
 
