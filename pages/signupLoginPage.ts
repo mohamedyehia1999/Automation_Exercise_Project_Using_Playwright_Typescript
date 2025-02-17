@@ -73,5 +73,6 @@ export class SignupLoginPage
     async validateErrorLoginMessageIsVisible(){
         await expect(this.errorLoginMsg).toBeVisible();
     }
+    
 
 }

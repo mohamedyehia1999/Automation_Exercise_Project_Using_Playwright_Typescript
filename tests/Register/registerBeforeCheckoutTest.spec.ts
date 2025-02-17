@@ -13,7 +13,7 @@ test.describe('Register Before Checkout', () => {
   let homePage: HomePage;
   let signupLoginPage: SignupLoginPage;
   let registerPage: RegisterPage;
-  let registerWhileCheckOutPage: CheckOutPage;
+  let checkOutPage: CheckOutPage;
   let cartPage: CartPage;
   let paymentPage: PaymentPage;
 
@@ -21,7 +21,7 @@ test.describe('Register Before Checkout', () => {
     homePage = new HomePage(page);
     signupLoginPage = new SignupLoginPage(page);
     registerPage = new RegisterPage(page);
-    registerWhileCheckOutPage = new CheckOutPage(page);
+    checkOutPage = new CheckOutPage(page);
     cartPage = new CartPage(page);
     paymentPage = new PaymentPage(page);
 
@@ -45,10 +45,10 @@ test.describe('Register Before Checkout', () => {
 
     await homePage.addProductToCartFromHomePageAndOpenCart();
     await cartPage.openCheckoutPage();
-    await registerWhileCheckOutPage.validateAddressDetailsIsVisible();
-    await registerWhileCheckOutPage.validateReviewOrderIsVisible();
-    await registerWhileCheckOutPage.userCanAddComment(registerCheckoutData.comment);
-    await registerWhileCheckOutPage.userCanPlaceOrder();
+    await checkOutPage.validateAddressDetailsIsVisible();
+    await checkOutPage.validateReviewOrderIsVisible();
+    await checkOutPage.userCanAddComment(registerCheckoutData.comment);
+    await checkOutPage.userCanPlaceOrder();
     await paymentPage.enterPaymentDetails(
       paymentData.NameOnCard, paymentData.CardNumber, paymentData.CVC,
       paymentData.ExpiryMonth, paymentData.ExpiryYear

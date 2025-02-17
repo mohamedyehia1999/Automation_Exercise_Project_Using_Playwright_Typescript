@@ -1,14 +1,6 @@
 import { type Locator,type Page,expect } from '@playwright/test';
 export class HomePage{
-    proceedToCheckout() {
-        throw new Error('Method not implemented.');
-    }
-    openCart() {
-        throw new Error('Method not implemented.');
-    }
-    addProductToCart() {
-        throw new Error('Method not implemented.');
-    }
+   
     readonly page:Page;
     readonly homePageTitle:Locator;
     readonly signup_login : Locator;
@@ -75,6 +67,7 @@ export class HomePage{
     async openCartPage(){
         await this.cartLink.click();
     }
+    
     async addProductToCartFromHomePageAndOpenCart(){
         await this.firstProduct.hover();
         await this.addToCartBtnFirstProduct.click();
