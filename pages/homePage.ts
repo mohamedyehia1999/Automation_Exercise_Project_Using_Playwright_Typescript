@@ -15,10 +15,10 @@ export class HomePage{
     readonly addToCartBtn:Locator;
     readonly firstProduct:Locator;
     readonly addToCartBtnFirstProduct:Locator;
-    readonly viewCartBtn:Locator;
+    readonly viewCartBtn:Locator;readonly
+   
 
-    
-    
+
 
     constructor(page:any)
 
@@ -38,7 +38,7 @@ export class HomePage{
         this.firstProduct=page.locator('.features_items .productinfo').nth(0);
         this.addToCartBtnFirstProduct=page.locator(".btn.btn-default.add-to-cart").nth(1);
         this.viewCartBtn=page.locator("//u[normalize-space()='View Cart']");
-
+      
 
     }
 
@@ -86,4 +86,5 @@ export class HomePage{
         await expect(this.subscription_SuccessMsg).toContainText(successMessage);
     
     }
+    
 }

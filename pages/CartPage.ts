@@ -1,4 +1,5 @@
 import { type Page,type Locator ,expect } from "@playwright/test";
+import exp from "constants";
 
 export class CartPage{
     
@@ -48,6 +49,10 @@ export class CartPage{
      async openRegisterLoginPage(){ 
          await this.register_loginLink.click();
      }
+     async userCanRemoveProductFromCart(){
+
+        await this.removeProductBtn.click();
+     }
      async verifyBothProductsAreAddedToCart()
      {
      const cartItems = await this.cartItems.count();
@@ -90,4 +95,6 @@ export class CartPage{
         expect(await this.productQuantity.textContent()).toContain('4');
 }
         */
-}
+       async verifyProductIsRemovedFromCart(){
+       await expect(this.cartItems).toBeHidden();
+}}
